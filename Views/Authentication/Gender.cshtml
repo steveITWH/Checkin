@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Login - Gender";
+}
+
+<h2>Please select your Gender</h2>
+
+@using (Html.BeginForm("Gender", "Authentication", null, FormMethod.Post))
+{
+    <div class="ui-grid-a gender">
+    
+        <div class="ui-block-a">
+            <button type="submit" name="maleButton" value="Male" data-role="none" class="image-button">
+                
+                <img src="@Url.Content("~/Content/images/male.jpg")" alt="male" />
+
+                <span data-role="button">Male</span>
+
+            </button>
+        </div>  
+	    <div class="ui-block-b">
+            <button type="submit" name="femaleButton" value="Female" data-role="none" class="image-button">
+
+                <img src="@Url.Content("~/Content/images/female.jpg")" alt="female" />
+
+                <span data-role="button">Female</span>
+
+            </button>
+        </div>
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿@model Visit
+@{
+    ViewBag.Title = "Patient Portal";
+}
+
+<h2>@ViewBag.SubTitle</h2>
+
+<ul data-role="listview" data-inset="true">
+    <li>
+        @Html.ActionLink("My appointments", "Index", "Appointments")
+        <span class="ui-li-count">@Model.Appointments.Count()</span>
+    </li>
+    <li data-icon="@(Model.DemographicsChecked.HasValue ? "check" : "arrow-r")">
+        @Html.ActionLink("Update/confirm demographics", "Index", "Demographics")
+    </li>
+    <li data-icon="@(Model.AdditionalQuestionsChecked.HasValue ? "check" : "arrow-r")">
+        @Html.ActionLink("Additional questions", "Index", "AdditionalQuestions")
+    </li>
+
+    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <item menuItem='3' text='' buttonText='Complete pre-assessment questionnaire' url='askquestion.aspx'></item>
+    <item menuItem='4' text='' buttonText='Browse health information' url='healthinfo.aspx'></item>*@
+</ul>

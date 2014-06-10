@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Visit>
+
+@{
+    ViewBag.Title = "Manual Import";
+}
+
+<h2>View Data</h2>
+
+@if (Model != null)
+{
+    foreach (var p in Model.GroupBy(v => v.Patient.PatientId).OrderBy(p => p.First().Patient.Surname))
+    {
+        <div data-role="collapsible" data-theme="b" data-content-theme="b" data-collapsed="false" >
+            
+            <h3>Patient: @p.First().Patient.PasPatientId - @p.First().Patient.Firstname @p.First().Patient.Firstname2 @p.First().Patient.Surname</h3>
+            <p>
+                Gender: @p.First().Patient.Gender<br />
+                Date of birth: @p.First().Patient.DOBString<br />
+                Postcode: @p.First().Patient.Postcode<br />
+                Visit Reference: @p.First().Reference<br />
+            </p>
+            
+            @foreach (var visit in p.GroupBy(v => v.VisitId))
+            {
+                <div data-role="collapsible" data-collapsed="true"  data-theme="c" data-content-theme="c">
+                    
+                    <h4>Visit: @visit.First().VisitDate.ToShortDateString()</h4>
+                    
+                    <ul data-role="listview">
+                        @foreach (UserData appointment in visit.First().Appointments.OrderBy(a => a.AppointmentDate))
+                        {
+                            <li>Id: @appointment.ID<br />
+                            Appointment Id: @appointment.AppointmentID<br />
+                            Clinic: @appointment.Clinic<br />
+                            Time: @appointment.AppointmentDate.ToShortTimeString()</li>
+                        }
+                    </ul>
+                
+                </div>    
+            }
+
+            
+        
+        </div>    
+    }
+}
+else
+{
+    <div>No data</div>
+}
+
+@Html.ActionLink("Back", "Index")

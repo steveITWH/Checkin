@@ -1,0 +1,57 @@
+﻿@model Spitfire.Mvc.Website.ViewModels.DayOfMonth
+@{
+    ViewBag.Title = "Login - Day Of Birth";
+}
+
+<h2>Please select the Day of the month in which you were born</h2>
+
+@using (Html.BeginForm("DayOfBirth", "Authentication", null, FormMethod.Post))
+{
+    <div class="ui-grid-c small-buttons">
+
+        @for (int i = 1; i < Model.DaysInMonth; i++)
+        {
+            <div class="ui-block-a"> 
+            
+                <button name="dayButton-@i" type="submit" value="@i" data-mini="false">@i<sup>@Model.GetDaySuffix(i)</sup></button>
+
+            </div>
+            
+            i++;
+            
+            <div class="ui-block-b"> 
+            
+                @if (i <= Model.DaysInMonth)
+                {
+                    <button name="dayButton-@i" type="submit" value="@i" data-mini="false">@i<sup>@Model.GetDaySuffix(i)</sup></button>
+                }
+
+            </div>
+            
+                i++;
+                  
+            <div class="ui-block-c"> 
+            
+                @if (i <= Model.DaysInMonth)
+                {
+                    <button name="dayButton-@i" type="submit" value="@i" data-mini="false">@i<sup>@Model.GetDaySuffix(i)</sup></button>            
+                }
+
+            </div>
+            
+                i++;
+            
+            <div class="ui-block-d"> 
+            
+                @if (i <= Model.DaysInMonth)
+                {
+                    <button name="dayButton-@i" type="submit" value="@i" data-mini="false">@i<sup>@Model.GetDaySuffix(i)</sup></button>            
+                }
+            </div>
+        }
+        
+    
+    </div>
+
+}
+    

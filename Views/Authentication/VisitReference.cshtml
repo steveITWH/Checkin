@@ -1,0 +1,43 @@
+﻿@model Spitfire.Mvc.Website.Models.AuthenticationParameters
+@{
+    ViewBag.Title = "Login - Visit Reference";
+}
+@Html.Partial("~/Views/Shared/_HelpPopup.cshtml")
+
+<h2>Please enter your Visit Reference</h2>
+
+@using (Html.BeginForm("VisitReference", "Authentication", FormMethod.Post))
+{
+    
+    <div data-role="fieldcontain" class="withDeleteButton">
+
+        @Html.TextBoxFor(model => Model.VisitReference, new { data_clear_btn = "true", data_inline = "true", data_theme = "b", placeholder="e.g. A23F4687"})
+        @Html.ValidationMessageFor(model => model.VisitReference)
+
+        <div class="deleteButtonContainer">
+            <input type="button" class="" data-icon="arrow-l" data-iconpos="notext" data-inline="true" data-theme="b" />
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/Shared/_KeyboardPartial.cshtml")
+
+    <div class="container_1">
+        <div class="grid_1 left">
+            <input type="button" onclick="javascript:showHelp('Visit Reference','Please enter your Visit Reference Number.  This will have been provided on your invitation letter or email', '', false);" data-icon="info" data-iconpos="left" data-inline="true" data-mini="false" value="Help" />
+        </div>
+    </div>
+    <div class="container_12">
+        @*<div class="grid_6">
+            @Html.ActionLink("Cancel", "Index", null, new { data_role = "button", data_icon = "delete", data_iconpos = "left", data_inline = "true", data_mini = "false" })             
+        </div>	 *@  
+        <div class="grid_12 right">
+            <input type="submit" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mini="false" value="Next"  />
+        </div>	   
+    </div>
+    
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

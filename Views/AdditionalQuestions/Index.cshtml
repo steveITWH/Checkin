@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AdditionalQuestion>
+
+@{
+    ViewBag.Title = "Patient Portal";
+}
+
+<h2>Additional Questions</h2>
+
+<p data-icon="info" data-role="content">Please answer as many of the following questions as possible. When finished, select Finish.</p>
+
+<ul data-role="listview" data-inset="true" data-theme="c">
+    @foreach (var additionalQuestion in Model)
+    {
+        <li data-role="list-divider" data-theme="c">@additionalQuestion.QuestionResourceValue</li>
+        
+        if (additionalQuestion.CurrentAnswer != null)
+        {
+            <li data-icon="check" data-theme="e">
+                <a data-ajax="false" href="@Url.Action("EditPickList", new { Id = additionalQuestion.QuestionId })">@additionalQuestion.CurrentAnswer.AnswerResourceValue</a>
+            </li>
+        }
+        else
+        {
+            <li data-icon="edit" data-theme="c">
+                <a data-ajax="false" href="@Url.Action("EditPickList", new { Id = additionalQuestion.QuestionId })">Select to update</a>
+            </li>
+        }
+    }
+</ul>
+
+<div class="container_12">
+    <div class="grid_12 right">
+        @Html.ActionLink("Finish", "Finish", null, new { data_role = "button", data_icon = "check", data_iconpos = "right", data_inline = "true" }) 
+    </div>	   
+</div>
