@@ -74,7 +74,7 @@ function hideStandardHelpDialog() {
 
 <h2>Please enter your Visit Reference</h2>
 
-<form method="post">    <div data-role="fieldcontain" class="withDeleteButton">
+<form action="#gender" method="post">    <div data-role="fieldcontain" class="withDeleteButton">
 
         <input data-clear-btn="true" data-inline="true" data-theme="b" data-val="true" data-val-required="The VisitReference field is required." id="VisitReference" name="VisitReference" placeholder="e.g. A23F4687" type="text" value="">
         <span class="field-validation-valid" data-valmsg-for="VisitReference" data-valmsg-replace="true"></span>
@@ -155,5 +155,50 @@ function hideStandardHelpDialog() {
                 
             </div>
         </div>
+		
+        <div data-role="page" data-theme="f" data-ajax="false">
+            <div style="text-align:right; background-color:White;">
+                <img src="Content/images/SiteLogo.jpg" alt="Logo" />
+	        </div>
+            <div data-role="header" data-theme="b">
+                <a href="#home" data-icon="home" data-theme="b">Home</a>
+		        
+                    <h1>Login - Gender</h1>
+
+                <a href="#home" data-icon="delete" data-theme="b" class="ui-btn-right">Logout</a>
+            </div>
+            <div data-role="content">
+                
+
+<h2>Please select your Gender</h2>
+
+<form action="#month" method="post">    <div class="ui-grid-a gender">
+    
+        <div class="ui-block-a">
+            <button type="submit" name="maleButton" value="Male" data-role="none" class="image-button">
+                
+                <img src="Content/images/male.jpg" alt="male" />
+
+                <span data-role="button">Male</span>
+
+            </button>
+        </div>  
+	    <div class="ui-block-b">
+            <button type="submit" name="femaleButton" value="Female" data-role="none" class="image-button">
+
+                <img src="Content/images/female.jpg" alt="female" />
+
+                <span data-role="button">Female</span>
+
+            </button>
+        </div>
+    </div>
+</form>
+                
+            </div>
+        </div>
+		
+		
+		
 	</body>
 </html>
