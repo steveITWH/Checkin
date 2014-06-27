@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Patient Portal - Login - Visit Reference</title>
-        <meta name="viewport" content="width=device-width">
-        <meta http-equiv="refresh" content="60; url=http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/">
-		<script type="text/javascript">
-            window.location.href = "http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/"
-        </script>    </head>
-    <body>
-	<h3>Redirect hasn't yet happened...</h3>
-	</body>
+<html>
+  <head>
+    <title>Checkin Demo</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         var ref = window.open('http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/', '_blank', 'location=yes');
+         ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+         ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+         ref.addEventListener('exit', function(event) { alert(event.type); });
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
 </html>
