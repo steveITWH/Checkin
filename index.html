@@ -13,15 +13,18 @@
     // device APIs are available
     //
     function onDeviceReady() {
+		//alert('onDeviceReady()');
+		window.location.href='http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/';
+		/*document.open('http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/');
          var ref = window.open('http://externalmobile.intouchwithhealthtest.co.uk/ExternalAnywhere/', '_blank', 'location=yes');
          ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
          ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
          ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-         ref.addEventListener('exit', function(event) { alert(event.type); });
+         ref.addEventListener('exit', function(event) { alert(event.type); });*/
     }
 
     </script>
   </head>
-  <body>
+  <body onload="onDeviceReady()">
   </body>
 </html>
